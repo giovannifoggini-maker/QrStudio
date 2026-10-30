@@ -1,0 +1,17 @@
+QR SCANNER FALLBACK ATTRIBUTION
+
+QR Studio optionally loads jsQR version 1.4.0 at the moment the user starts scanning
+when the native BarcodeDetector API is unavailable or cannot read the source.
+
+Project: https://github.com/cozmo/jsQR
+License: Apache License, Version 2.0
+License text: QRCode-terminal-Apache-2.0.txt in this folder (the full Apache 2.0 text).
+
+The decoder is fetched at runtime from a version-pinned distribution URL:
+- https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js
+- https://unpkg.com/jsqr@1.4.0/dist/jsQR.js (fallback)
+
+The decoder is not bundled in this ZIP because network access to public package
+registries is unavailable in the build environment. The script is loaded only when
+scanning is requested, and QR contents are passed only to the local decoder; the
+application does not upload QR payloads to the CDN.
